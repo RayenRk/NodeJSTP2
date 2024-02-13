@@ -15,7 +15,7 @@ router.get('/:id', (req, res) => {
   if (voiture) {
     res.json(voiture);
   } else {
-    res.status(404).json({ message: 'Voiture not found' });
+    res.status(404).json({ message: 'Car not found' });
   }
 });
 
@@ -35,7 +35,7 @@ router.put('/update/:id', (req, res) => {
     voitures[index] = updatedVoiture;
     res.json(updatedVoiture);
   } else {
-    res.status(404).json({ message: 'Voiture not found' });
+    res.status(404).json({ message: 'Car not found' });
   }
 });
 
@@ -47,7 +47,7 @@ router.delete('/delete/:id', (req, res) => {
     const deletedVoiture = voitures.splice(index, 1)[0];
     res.json(deletedVoiture);
   } else {
-    res.status(404).json({ message: 'Voiture not found' });
+    res.status(404).json({ message: 'Car not found' });
   }
 });
 
