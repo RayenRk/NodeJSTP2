@@ -34,6 +34,7 @@ router.put('/update/:id', (req, res) => {
   if (index !== -1) {
     voitures[index] = updatedVoiture;
     res.json(updatedVoiture);
+    // res.send({message: 'car updated',data:voitures})
   } else {
     res.status(404).json({ message: 'Car not found' });
   }
