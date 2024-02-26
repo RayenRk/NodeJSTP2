@@ -7,10 +7,16 @@
     "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["api", "json", "node", "express"],
+  "keywords": [
+    "api",
+    "json",
+    "node",
+    "express"
+  ],
   "author": "Rayen",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongoose": "^8.2.0"
   }
 }
