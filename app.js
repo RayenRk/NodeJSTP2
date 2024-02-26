@@ -2,6 +2,7 @@ const express = require("express");
 const voitures = require("./routes/voitures");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const auth = require("./routes/auth");
 
 dotenv.config();
 const MONGOBD_URI = process.env.MONGOBD_URI;
