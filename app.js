@@ -15,6 +15,6 @@ app.use("/voitures", voitures);
 mongoose.connect(MONGOBD_URI).then(() => {
   console.log("connected to database");
   app.listen(PORT, () => {
-    console.log("Server started on http://localhost:${PORT}");
+    console.log(`Server started on http://localhost:${PORT}`);
   });
 });
