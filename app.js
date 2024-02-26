@@ -1,6 +1,11 @@
 const express = require("express");
 const voitures = require("./routes/voitures");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+
+dotenv.config();
+const MONGOBD_URI = process.env.MONGOBD_URI;
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 
