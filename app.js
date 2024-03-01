@@ -3,6 +3,8 @@ const voitures = require("./routes/voitures");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const auth = require("./routes/auth");
+const User = require("./models/user");
+const post = require("./routes/postsRoute");
 
 dotenv.config();
 const MONGOBD_URI = process.env.MONGOBD_URI;
@@ -13,6 +15,8 @@ const app = express();
 app.use(express.json());
 
 app.use("/voitures", voitures);
+app.use("/auth", auth);
+app.use("/post", post);
 
 // app.listen(4000, () => {
 //   console.log('Server started on http://localhost:4000');
