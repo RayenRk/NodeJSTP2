@@ -31,6 +31,17 @@ router.post("/login", async (req, res) => {
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
+    const payload = {
+        user: {
+        id: User.id,
+        username: User.username,
+        password: User.password,
+        },
+    };
+    jwt.sign(payload, process.env.SECRET_KEY, (error, token) => {
+        if (error) throw error;
+        res.json({ token });
+    });
 });
 
 module.exports = router;
