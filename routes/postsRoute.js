@@ -1,11 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const Post = require("../models/post");
+const authenticate = require("../middleware/authenticate");
 
 // Get all posts
 router.get("/", async (req, res) => {
   try {
-    const posts = await Post.find();
+    const posts = await Post.find().populate("author", "username");
     res.json(posts);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -26,9 +27,9 @@ router.get("/:id", async (req, res) => {
 });
 
 // Create a post
-router.post("/add", async (req, res) => {
+router.post("/add", authenticate, async (req, res) => {
   try {
-    const post = new Post(req.body);
+    const post = new Post(req.body, { author: req.userId });
     await post.save();
     res.status(201).json(post);
   } catch (error) {
@@ -37,7 +38,7 @@ router.post("/add", async (req, res) => {
 });
 
 // Update a post
-router.put("/update/:id", async (req, res) => {
+router.put("/update/:id", authenticate, async (req, res) => {
   try {
     const post = await Post.findByIdAndUpdate(req.params.id, req.body, {
       new: true,

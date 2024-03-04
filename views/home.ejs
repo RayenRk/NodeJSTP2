@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Posts List</title>
+  </head>
+  <body>
+    <div class="container">
+        <header>
+            <h1>Welcome <%=data.name%>, to list</h1>
+        </header>
+        <section class="content">
+            <p>Share your Posts with Friends !</p>
+            <a href=""/register"">Register</a>
+            <a href=""/login"">Login</a>
+        </section>
+      <ul>
+        <% data.tasks.forEach(( item) =>{ %>
+        <li>Post <%= item %></li>
+        <% }); %>
+      </ul>
+    </div>
+  </body>
+</html>

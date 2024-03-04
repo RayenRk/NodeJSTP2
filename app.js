@@ -13,10 +13,16 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 app.use(express.json());
+app.set("view engine", "ejs");
 
 app.use("/voitures", voitures);
 app.use("/auth", auth);
 app.use("/post", post);
+
+let data = {
+  name: "Rayen",
+  tasks: ["task1", "task2", "task3"],
+};
 
 // app.listen(4000, () => {
 //   console.log('Server started on http://localhost:4000');
