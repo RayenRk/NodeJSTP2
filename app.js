@@ -21,7 +21,7 @@ app.use("/post", post);
 
 let data = {
   name: "Rayen",
-  tasks: ["task1", "task2", "task3"],
+  tasks: ["dev", "design", "boxing"],
 };
 
 // app.listen(4000, () => {

@@ -13,6 +13,17 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Get all posts and render to home page
+
+router.get("/home", async (req, res) => {
+  try {
+    const posts = await Post.find().populate("author", "username");
+    res.render("home", { posts });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // Get a post with id
 router.get("/:id", async (req, res) => {
   try {
